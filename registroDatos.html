@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style-registro-datos.css">
+    <title>Historial clinico</title>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/LOGO-ULEAM-HORIZONTAL.png" alt="Logo">
+            </a>
+        </div>
+            <div class="botones">
+                <a href="registroDatos.html">
+                    <button class="boton">MI HISTORIAL CLINICO</button>
+                </a>
+                <a href="RegistroCitas.html">
+                    <button class="boton">REGISTRO DE CITAS</button>
+                </a>
+                <a href="configuracion.html">
+                    <button class="boton">CONFIGURACION</button>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="form-content">
+            <h1 id="tittle" class="tittle">MY HISTORIAL CLINICO</h1>
+            <form>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Nombre" name="nombre">
+                </div>
+            
+                <div class="input-field">
+                    <i class="fas fa-calendar"></i>
+                    <label for="fecha-nacimiento">Fecha de Nacimiento</label>
+                    <input type="date" id="fecha-nacimiento" name="fecha-nacimiento">
+                </div>
+                
+            
+                <div class="input-field">
+                    <i class="fas fa-id-card"></i>
+                    <select name="tipo-sangre" id="tipo-sangre">
+                        <option value="">Tipo de Sangre</option> <!-- EL FORMATE POR DEFECTO -->
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+
+                    </select>
+                </div>
+            
+                <div class="input-field">
+                    <i class="fas fa-phone"></i>
+                    <input type="tel" placeholder="Contacto de Emergencia" name="contacto-emergencia">
+                </div>
+            
+                <div class="input-field">
+                    <i class="fas fa-calendar"></i>
+                    <label for="fecha-nacimiento">Fecha del Último Examen Físico</label>
+                    <input type="date" placeholder="Fecha del Último Examen Físico" name="fecha-examen-fisico">
+                </div>
+            
+                <div class="input-field">
+                    <i class="fas fa-clipboard-list"></i>
+                    <textarea placeholder="Fechas y Resultados de Pruebas y Estudios" name="pruebas-estudios"></textarea>
+                </div>
+            
+                <div class="input-field">
+                    <i class="fas fa-notes-medical"></i>
+                    <textarea placeholder="Enfermedades Importantes y Cirugías" name="enfermedades-cirugias"></textarea>
+                </div>
+                
+                <div class="input-field">
+                    <i class="fas fa-clipboard-list"></i>
+                    <textarea placeholder="Cualquier tipo de alergia" name="alergias"></textarea>
+                </div>
+                
+                <div class="input-field">
+                    <i class="fas fa-notes-medical"></i>
+                    <textarea placeholder="Cualquier enfermedad crónica" name="enfermedades-cronicas"></textarea>
+                </div>
+                
+                <div class="btn-field">
+                    <button id="guardar" type="button" onclick="guardarHistorial()">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        function guardarHistorial() {
+            // Obtén los valores de los campos
+            const nombre = document.querySelector('[name="nombre"]').value;
+            const fechaNacimiento = document.querySelector('[name="fecha-nacimiento"]').value;
+            const tipoSangre = document.querySelector('[name="tipo-sangre"]').value;
+            const contactoEmergencia = document.querySelector('[name="contacto-emergencia"]').value;
+            const fechaExamenFisico = document.querySelector('[name="fecha-examen-fisico"]').value;
+            const pruebasEstudios = document.querySelector('[name="pruebas-estudios"]').value;
+            const enfermedadesCirugias = document.querySelector('[name="enfermedades-cirugias"]').value;
+            const alergias = document.querySelector('[name="alergias"]').value;
+            const enfermedadesCronicas = document.querySelector('[name="enfermedades-cronicas"]').value;
+        
+            // Realiza comprobaciones, por ejemplo, si los campos están llenos y el tipo de sangre no es el valor por defecto
+            if (!nombre || !fechaNacimiento || tipoSangre === "" || !contactoEmergencia || !fechaExamenFisico) {
+                alert('Por favor, completa todos los campos obligatorios y selecciona un tipo de sangre.');
+                return;
+            }
+        
+            // Realiza otras comprobaciones, como la validez de la fecha de nacimiento
+        
+            // Simula el proceso de guardado, aquí puedes enviar los datos a un servidor, almacenarlos en localStorage, etc.
+        
+            alert('Datos guardados con éxito.');
+        }
+        </script>
+        
+</body>
+</html>

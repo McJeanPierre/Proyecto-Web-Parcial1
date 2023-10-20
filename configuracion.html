@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles-config.css">
+    <title>Configuración</title>
+</head>
+<body>
+
+    <div class="menu">
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/LOGO-ULEAM-HORIZONTAL.png" alt="Logo">
+            </a>
+        </div>
+            <div class="botones">
+                <a href="registroDatos.html">
+                    <button class="boton">MI HISTORIAL CLINICO</button>
+                </a>
+                <a href="RegistroCitas.html">
+                    <button class="boton">REGISTRO DE CITAS</button>
+                </a>
+                <a href="configuracion.html">
+                    <button class="boton">CONFIGURACION</button>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="form-content">
+            <h1 id="title" class="title">Configuración</h1>
+            <form id="configForm">
+                <label for="phoneNumber">Número Telefónico:</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Ingrese su número telefónico" maxlength="10">
+                <br>
+                <label for="address">Dirección:</label>
+                <input type="text" id="address" name="address" placeholder="Ingrese su dirección">
+                <br>
+                <label for="profileImage">Imagen de Perfil:</label>
+                <input type="file" id="profileImage" name="profileImage">
+                <br>
+                <div id="imagePreview">
+                    <img id="preview" src="default-profile-image.jpg" alt="Imagen de perfil">
+                </div>
+                <input type="button" value="Guardar Cambios" onclick="updateUserInfo()">
+                <div id="updateMessage"></div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+        function updateUserInfo() {
+            const phoneNumber = document.getElementById("phoneNumber").value;
+            const address = document.getElementById("address").value;
+            const profileImage = document.getElementById("profileImage").files[0];
+
+            // Validar el número telefónico
+            if (phoneNumber.length !== 10) {
+                document.getElementById("updateMessage").innerHTML = "Número telefónico debe tener 10 dígitos.";
+                return;
+            }
+
+            // Puedes enviar estos datos al servidor para actualizar la información del usuario.
+            // Por ahora, solo mostramos un mensaje de actualización exitosa.
+            document.getElementById("updateMessage").innerHTML = "Datos actualizados con éxito.";
+
+            // Actualizar la imagen de perfil previa
+            if (profileImage) {
+                const preview = document.getElementById("preview");
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                };
+                reader.readAsDataURL(profileImage);
+            }
+        }
+    </script>
+</body>
+</html>

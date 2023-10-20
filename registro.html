@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style-registro-sesion.css">
+    <title>Formulario</title>
+</head>
+<body>
+
+    <div class="menu">
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/LOGO-ULEAM-HORIZONTAL.png" alt="Logo">
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="form-content">
+            <h1 id="tittle" class="tittle">SignUp</h1>
+            <form>
+                <div class="input-group">
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Nombre">
+                    </div>
+                    <div class="input-field ">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Apellido">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-id-card"></i>
+                        <input type="text" placeholder="Cedula">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Correo">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Contraseña">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Repite Contraseña">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-calendar"></i>
+                        <input type="date" placeholder="Edad">
+                    </div>
+                    <p>Olvidaste tu Contraseña <a href="#">Click Aquí</a></p>
+                </div>
+                <div class="btn-field">
+                    <button id="signUp" type="button">SignUp</button>
+                    <a href="sesion.html">
+                        <button id="signIn" type="button">Login</button>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- JAVASCRIPT-->
+
+    <script>
+        const form = document.getElementById('registration-form');
+        const signUpButton = document.getElementById('signUp');
+        const passwordField = document.querySelector('input[type="password"]');
+        const repeatPasswordField = document.querySelector('input[type="password"][placeholder="Repite Contraseña"]');
+        const emailField = document.querySelector('input[type="email"]');
+        const ageField = document.querySelector('input[type="date"]');
+
+
+        signUpButton.addEventListener('click', function() {
+            // Validación de contraseña
+            const password = passwordField.value;
+            if (password.length < 6) {
+                alert('La contraseña debe tener al menos 6 caracteres.');
+                return;
+            }
+            if (!/[A-Z]/.test(password)) {
+                alert('La contraseña debe contener al menos una letra mayúscula.');
+                return;
+            }
+            if (password !== repeatPasswordField.value) {
+                alert('Las contraseñas no coinciden.');
+                return;
+            }
+
+            // Validación de correo electrónico
+            const email = emailField.value;
+            if (!email.includes('@')) {
+                alert('La dirección de correo electrónico no es válida.');
+                return;
+            }
+
+            // Validación de edad
+            const dob = new Date(ageField.value);
+            const today = new Date();
+            const age = today.getFullYear() - dob.getFullYear();
+            if (age < 18) {
+                alert('Debes tener al menos 18 años para registrarte.');
+                return;
+            }
+
+            // Si todas las validaciones pasan, puedes enviar el formulario o realizar otras acciones.
+            form.submit(); // Envía el formulario
+        });
+    </script>
+
+</body>
+</html>

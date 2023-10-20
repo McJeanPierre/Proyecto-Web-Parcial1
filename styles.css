@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@100&family=Pacifico&family=Poppins:ital,wght@0,200;1,700&family=Space+Grotesk:wght@300&family=Yellowtail&display=swap');
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.header{
+    background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)),
+    url("img/piniclinico.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.menu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    color: azure;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.menu .navbar ul li{
+    position: relative;
+    float: left;
+}
+
+.menu .navbar ul li a {
+    font-size: 18px;
+    padding: 20px;
+    color: white;
+    display: block;
+    font-weight: 600;
+}
+
+.menu .navbar ul li a:hover{
+    color: #f73939;
+}
+
+#menu{
+    display: none;
+}
+
+.menu-icono{
+    width: 25px;
+}
+
+.menu label{
+    cursor: pointer;
+    display: none;
+}
+
+.header-content{
+    text-align: center;
+}
+
+.header-content h1{
+    font-size: 75px;
+    line-height: 80px;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+}
+
+.header-content p{
+    font-size: 16px;
+    color: white;
+    padding: 0 250px;
+    margin-bottom: 25px;
+}
+
+.btn-1{
+    display: inline-block;
+    padding: 11px 35px;
+    background-color: #f73939;
+    color: white;
+    text-transform: uppercase;
+}
+
+.btn-1:hover {
+    background-color:#f92020;;
+}
+
+.servicios{
+    padding: 100px 0;
+    background-color: rgba(248, 248, 248, 0.564);
+    position: relative;
+
+}
+
+.clinica-content{
+    text-align: center;
+}
+
+.clinica-content h2{
+    font-size: 55px;
+    line-height: 50px;
+    color: #323337;
+    text-transform: uppercase;
+    padding: 0 250px;
+    margin-bottom: 25px;
+}
+
+.txt-p{
+    font-size: 16px;
+    color: black;
+    padding: 0 250px;
+    margin-bottom: 35px;
+}
+
+.servicios-group {
+    display: flex;
+    justify-content: space-around;
+}
+
+.servicio-1 {
+    padding: 25px;
+}
+.servicio-1 i{
+    margin: 20px;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #f65148;
+    border: 1px solid #ff5b5b;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 5px;
+    transition: .3s;
+    margin-bottom: 15px;
+}
+
+.services {
+    padding: 10px 0;
+    text-align: center;
+}
+
+.services h2 {
+    padding: 30px 0;
+    text-transform: uppercase;
+}
+
+.services .text-services-inicio{
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    padding: 0 250px;
+    margin-bottom: 25px;
+}
+
+.services-content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.services-1{
+    padding: 15px 55px;
+}
+
+.services-1 img{
+    width: 250px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}

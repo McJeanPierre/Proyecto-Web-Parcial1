@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="sytyle-registro-generales.css">
+    <title>Agendar Citas Médicas</title>
+</head>
+<body>
+    <div class="menu">
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/LOGO-ULEAM-HORIZONTAL.png" alt="Logo">
+            </a>
+        </div>
+            <div class="botones">
+                <a href="registroDatos.html">
+                    <button class="boton">MI HISTORIAL CLINICO</button>
+                </a>
+                <a href="RegistroCitas.html">
+                    <button class="boton">REGISTRO DE CITAS</button>
+                </a>
+                <a href="configuracion.html">
+                    <button class="boton">CONFIGURACION</button>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+<div class="container">
+    <div class="agenda">
+        <div class="agendar-cita">
+            <h1 id="title" class="title">Agendar Citas Médicas</h1>
+            <form>
+                <div class="input-field">
+                    <i class="far fa-calendar-alt"></i>
+                    <label for="fecha-cita">Fecha de la Cita</label>
+                    <select id="fecha-cita" name="fecha-cita">
+                        <option value="">Selecciona una fecha disponible</option>
+                        <option value="2023-10-20">2023-10-20</option>
+                        <option value="2023-10-21">2023-10-21</option>
+                        <!-- Agrega más fechas disponibles aquí -->
+                    </select>
+                </div>
+
+                <div class="input-field">
+                    <i class="fas fa-user-md"></i>
+                    <select name="tipo-doctor" id="tipo-doctor">
+                        <option value="">Tipo de Médico</option>
+                        <option value="Medico General">Médico General</option>
+                        <option value="Odontólogo">Odontólogo</option>
+                        <option value="Psicólogo">Psicólogo</option>
+                    </select>
+                </div>
+
+                <h2>Horarios Disponibles:</h2>
+
+                <div class="input-field">
+                    <i class="far fa-clock"></i>
+                    <select name="hora-cita" id="hora-cita">
+                        <option value="">Selecciona una hora disponible</option>
+                        <option value="09:00 AM">09:00 AM</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="11:00 AM">11:00 AM</option>
+                        <!-- Agrega más horas disponibles aquí -->
+                    </select>
+                </div>
+
+                <div class="btn-field">
+                    <button id="agendar" type="button" onclick="agendarCita()">Agendar Cita</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="cita-agendada">
+            <h2>Cita Agendada</h2>
+            <p><strong>Fecha:</strong> <span id="cita-fecha"></span></p>
+            <p><strong>Médico:</strong> <span id="cita-medico"></span></p>
+            <p><strong>Hora:</strong> <span id="cita-hora"></span></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function agendarCita() {
+        const fechaCita = document.querySelector('[name="fecha-cita"]').value;
+        const tipoDoctor = document.querySelector('[name="tipo-doctor"]').value;
+        const horaCita = document.querySelector('[name="hora-cita"]').value;
+
+        if (!fechaCita || tipoDoctor === "" || !horaCita) {
+            alert('Por favor, completa todos los campos obligatorios.');
+            return;
+        }
+
+        // Guardar la cita en una variable (simulación)
+        const citaAgendada = {
+            fecha: fechaCita,
+            medico: tipoDoctor,
+            hora: horaCita,
+        };
+
+        // Mostrar la cita agendada en la parte derecha
+        document.getElementById('cita-fecha').textContent = citaAgendada.fecha;
+        document.getElementById('cita-medico').textContent = citaAgendada.medico;
+        document.getElementById('cita-hora').textContent = citaAgendada.hora;
+
+        // Puedes almacenar la cita en una base de datos o sistema de servidor en una implementación real
+    }
+</script>
+</body>
+</html>
